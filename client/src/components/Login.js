@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     render() {
@@ -17,7 +18,7 @@ class Login extends Component {
                                     id="btn-reg" title="Google prijava" href="/auth/google" style={{ borderRadius: 0, backgroundColor: "#db3236" }}><i class="fa fa-google">                              </i></a><button class="green btn-floating btn-large right tooltip-icon"
                                         id="btn-reg" title="Prijava" type="submit" style={{ borderRadius: 0 }}><i className="fa fa-sign-in"></i></button></div>
                             </div>
-                            <div className="col s10 offset-s1"><label style={{ float: 'right' }}><br /><a class="pink-text" href="/reset"><b>Zaboravili ste šifru?</b><span className="brown-text" style={{ fontSize: 2 + 'em' }}>&nbsp;&nbsp; | &nbsp;&nbsp;</span></a><a className="blue-text" href="/register"><b>Registrujte se</b></a></label></div>
+                            <div className="col s10 offset-s1"><label style={{ float: 'right' }}><br /><Link class="pink-text" to="/auth/reset"><b>Zaboravili ste šifru?</b><span className="brown-text" style={{ fontSize: 2 + 'em' }}>&nbsp;&nbsp; | &nbsp;&nbsp;</span></Link><Link className="blue-text" to="/register"><b>Registrujte se</b></Link></label></div>
                         </h4>
                     </form>
                 </div>

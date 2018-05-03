@@ -7,6 +7,7 @@ import Header from './Header';
 import Login from './Login';
 import Register from './Register';
 import Landing from './Landing';
+import Footer from './Footer';
 const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
 
@@ -15,7 +16,7 @@ class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
     }
-    
+
     render() {
         return (
             <div>
@@ -28,16 +29,17 @@ class App extends Component {
                             <Route exact path='/surveys' component={Dashboard} />
                             <Route path='/surveys/new' component={SurveyNew} />
                             <Route path="/login" component={Login} />
-                            <Route path='/register' component={Register}/>
-                            
-                            
+                            <Route path='/register' component={Register} />
+
+
                         </div>
+                        <Footer />
 
 
                     </div>
                 </BrowserRouter>
             </div>
-        
+
         );
     }
 }

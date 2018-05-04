@@ -8,7 +8,8 @@ import Login from './Login';
 import Register from './Register';
 import Landing from './Landing';
 import Footer from './Footer';
-const Dashboard = () => <h2>Dashboard</h2>
+import Vina from './Vina';
+
 const SurveyNew = () => <h2>SurveyNew</h2>
 
 
@@ -26,7 +27,7 @@ class App extends Component {
                         <Route exact path='/' component={Landing} />
                         <div className="container">
 
-                            <Route exact path='/surveys' component={Dashboard} />
+                            <Route path='/vina' component={Vina} />
                             <Route path='/surveys/new' component={SurveyNew} />
                             <Route path="/login" component={Login} />
                             <Route path='/register' component={Register} />

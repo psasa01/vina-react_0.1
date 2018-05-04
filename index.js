@@ -10,6 +10,7 @@ const flash = require('connect-flash');
 // user always must be required before passport!!!!!!!
 require('./models/User');
 require('./services/passport');
+require('./models/Vino');
 
 mongoose.connect(keys.mongoURI);
 
@@ -43,6 +44,7 @@ app.get('/user', (req, res) => {
 })
 
 require('./routes/authRoutes')(app);
+require('./routes/vinaRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assets

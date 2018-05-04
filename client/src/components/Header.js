@@ -288,8 +288,156 @@ class Header extends Component {
                 )
         }
     }
+    renderUser() {
+        if (this.props.auth) {
+            return (
+                <div>
+
+                    <div
+                        style={{ lineHeight: 0 + 'em' }}
+                    >
+                        <p
+                            className="right brown-text"
+                            style={{ marginRight: 1 + 'em', marginTop: 4.8 + 'em' }}
+                        >
+                            {this.props.auth.ime}
+                        </p>
+                        <img
+                            className="circle responsive-img"
+                            style={{ height: 5 + 'em', marginTop: .5 + 'em', marginLeft: 1 + 'em' }}
+                            src={this.props.auth.slika}
+                            alt="" />
+                    </div>
+                    <SideNavItem divider />
+                </div>
 
 
+            )
+        }
+    }
+
+    renderSidenav() {
+        return (
+            <div>
+                <SideNavItem
+                    className="mobile-home no-hover"
+                >
+
+                    <img
+
+                        className="moja-kolekcija-vina no-hover"
+                        style={{ height: 3 + 'em', bottom: 0.3 + 'em', left: 3 + 'em' }}
+                        src="/images/logo-mobile.svg"
+                        alt="mojaKolekcijaVina"
+                    />
+
+                </SideNavItem>
+                <SideNavItem divider />
+                {this.renderUser()}
+
+
+                <SideNavItem>
+                    <Link
+                        className="no-hover brown-text"
+                        style={{ left: -2 + 'em' }}
+                        to="/"
+                    >
+                        <b>Dodaj Vino</b>
+                    </Link>
+                </SideNavItem>
+                <SideNavItem>
+                    <Link
+                        className="no-hover brown-text"
+                        to="/"
+                    >
+                        <b>Galerija</b>
+                    </Link>
+                </SideNavItem>
+                <SideNavItem>
+                    <Link
+                        className="no-hover brown-text"
+                        to="/"
+                    >
+                        <b>Pretraga po zemljama</b>
+                    </Link>
+                </SideNavItem>
+                <SideNavItem>
+                    <Link
+                        className="no-hover brown-text"
+                        to="/"
+                    >
+                        <b>Pretraga po vrstama</b>
+                    </Link>
+                </SideNavItem>
+                <SideNavItem>
+                    <Link
+                        className="no-hover brown-text"
+                        to="/"
+                    >
+                        <b>Pretraga po korisnicima</b>
+                    </Link>
+                </SideNavItem>
+                <SideNavItem>
+                    <Link
+                        className="no-hover brown-text"
+                        to="/"
+                    >
+                        <b>Pretraga po godinama</b>
+                    </Link>
+                </SideNavItem>
+                <SideNavItem>
+                    <Link
+                        className="no-hover brown-text"
+                        to="/"
+                    >
+                        <b>Najnovije dodana vina</b>
+                    </Link>
+                </SideNavItem>
+                {this.renderInOut()}
+            </div>
+        )
+    }
+
+
+    renderInOut() {
+
+        if (this.props.auth) {
+            return (
+                <SideNavItem>
+                    <a
+                        className="no-hover brown-text"
+                        href="/api/logout"
+                    >
+                        <b>Odjava</b>
+                    </a>
+                </SideNavItem>
+            )
+
+        } else {
+            return (
+                <div>
+                    <SideNavItem>
+                        <Link
+                            className="no-hover brown-text"
+                            to="/login"
+                        >
+                            <b>Prijava</b>
+                        </Link>
+                    </SideNavItem>
+                    <SideNavItem>
+                        <Link
+                            className="no-hover brown-text"
+                            to="/register"
+                        >
+                            <b>Registracija</b>
+                        </Link>
+                    </SideNavItem>
+                </div>
+            )
+        }
+
+
+    }
 
     render() {
         return (
@@ -303,6 +451,17 @@ class Header extends Component {
                                 src="/images/logo.svg"
                                 alt="mojaKolekcijaVina" />
                         </Link>
+
+
+
+                        <ul className="right hide-on-med-and-down right-margin">
+                            <li>
+                                {this.renderContent()}
+                            </li>
+
+
+                        </ul>
+
                         <SideNav
                             trigger={
 
@@ -313,29 +472,10 @@ class Header extends Component {
                             }
                             options={{ closeOnClick: true }}
                         >
-                            <SideNavItem userView
-                                user={{
-                                    background: 'img/office.jpg',
-                                    image: 'img/yuna.jpg',
-                                    name: 'John Doe',
-                                    email: 'jdandturk@gmail.com'
-                                }}
-                            />
-                            <SideNavItem href='#!icon' icon='cloud'>First Link With Icon</SideNavItem>
-                            <SideNavItem href='#!second'>Second Link</SideNavItem>
-                            <SideNavItem divider />
-                            <SideNavItem subheader>Subheader</SideNavItem>
-                            <SideNavItem waves href='#!third'>Third Link With Waves</SideNavItem>
+
+                            {this.renderSidenav()}
+
                         </SideNav>
-
-
-                        <ul className="right hide-on-med-and-down right-margin">
-                            <li>
-                                {this.renderContent()}
-                            </li>
-
-
-                        </ul>
                     </div>
                 </nav>
 

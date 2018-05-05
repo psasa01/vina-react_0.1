@@ -5,7 +5,7 @@ export default (state = null, action) => {
     switch (action.type) {
         case FETCH_VINA:
             // if empty return false!!!
-            return action.payload || false;
+            return action.payload;
         default:
             return state;
     }

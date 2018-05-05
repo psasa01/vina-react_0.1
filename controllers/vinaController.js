@@ -9,6 +9,6 @@ const mongooseAlgolia = require('mongoose-algolia');
 
 exports.fetchVina = async (req, res) => {
     const vina = await Vino.find();
-    console.log(res);
+    
     res.send(vina);
 }

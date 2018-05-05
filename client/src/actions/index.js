@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, FETCH_VINA } from './types';
+import { FETCH_USER, FETCH_VINA, FETCH_SINGLE_VINO } from './types';
 
 
 export const fetchUser = () => async dispatch => {
@@ -12,5 +12,11 @@ export const fetchUser = () => async dispatch => {
 export const fetchVina = () => async dispatch => {
     const res = await axios.get('/api/vina');
     dispatch({ type: FETCH_VINA, payload: res.data })
+}
+
+export const fetchSingleVino = (slug) => async dispatch => {
+
+    const res = await axios.get(`/api/vino/${slug}`);
+    dispatch({ type: FETCH_SINGLE_VINO, payload: res.data })
 }
 

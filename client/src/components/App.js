@@ -9,6 +9,7 @@ import Register from './Register';
 import Landing from './Landing';
 import Footer from './Footer';
 import Vina from './Vina';
+import SingleVino from './SingleVino'
 
 const SurveyNew = () => <h2>SurveyNew</h2>
 
@@ -31,6 +32,7 @@ class App extends Component {
                             <Route path='/surveys/new' component={SurveyNew} />
                             <Route path="/login" component={Login} />
                             <Route path='/register' component={Register} />
+                            <Route path="/vino/:slug" component={SingleVino} />
 
 
                         </div>

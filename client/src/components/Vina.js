@@ -1,28 +1,32 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { Link } from 'react-router-dom';
+// import { Modal } from 'react-materialize';
 
 class Vina extends Component {
 
     componentDidMount() {
         this.props.fetchVina()
-        
+
     }
 
     render() {
-      
+
         const vina = this.props.vina || [];
         const renderCard = vina.map((vino) => {
-            return(
-                        
-                <a href={`#${vino.slug}`} className="modal-trigger">
+            return (
+
+                <Link to={`/vino/${vino.slug}`} key={vino._id} className="modal-trigger">
                     <div className="col s12 m6 l3">
-                        <div className="card z-depth-2">
-                            <div 
+                        <div
+                            className="card z-depth-2"
+                        >
+                            <div
                                 className="card-image sliphover-target"
-                                data-caption={`<a class="modal-trigger sliphover-options" href='#${vino.slug}'><div class="sliphover-wrapper"><p>${vino.naziv}</p></div></a>`}
+                                data-caption={`<a className="modal-trigger sliphover-options" href='#${vino.slug}'><div className="sliphover-wrapper"><p>${vino.naziv}</p></div></a>`}
                             >
-                                <img src={`/images/vina-thumbs/${vino.slika}`} alt={vino.naziv}/>
+                                <img src={`/images/vina-thumbs/${vino.slika}`} alt={vino.naziv} />
                                 <div className="korisnik">
                                     <p className="card-ime">{vino.ime}</p>
                                 </div>
@@ -31,20 +35,21 @@ class Vina extends Component {
                                 </div>
                             </div>
                             <div className="card-action brown lighten-4 action-style brown-text">
-                                <a className="brown-text" href={`/zemlje/${vino.zemlja}`}>{vino.zemlja.toUpperCase()}</a>
+                                <a className="modal-trigger brown-text card-zemlje" href={`/zemlje/${vino.zemlja}`}><p>{vino.zemlja.toUpperCase()}</p></a>
                             </div>
                         </div>
                     </div>
-                </a>
+                </Link>
 
             )
         })
         return (
-          
-                <div className="row" id="sliphover">
-                    {renderCard}
-                </div>
-        
+
+            <div className="row" id="sliphover">
+
+                {renderCard}
+            </div>
+
         )
     }
 }

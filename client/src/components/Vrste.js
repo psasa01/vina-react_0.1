@@ -4,18 +4,35 @@ import * as actions from '../actions';
 import { Link } from 'react-router-dom';
 // import { Modal } from 'react-materialize';
 
-class Vina extends Component {
+class Vrste extends Component {
 
     componentDidMount() {
-        this.props.fetchVina()
+        const { vrsta } = this.props.match.params
+        this.props.vinaPoVrstama(vrsta);
 
     }
 
+
     render() {
+        const vrste = this.props.vrste || {};
+        const vrs = vrste.vrs || [];
+        const vina = vrste.vina || [];
+        console.log(vrste)
+
+        const renderVrste = vrs.map((vrsta) => {
+            return (
 
 
 
-        const vina = this.props.vina || [];
+                <a href={`/vrste/${vrsta._id}`} key={vrsta._id}>
+                    <div style={{ marginRight: .3 + 'em', marginBottom: .1 + 'em' }} className="btn waves-effect waves-light btn-zemlja brown">
+                        {vrsta._id} - {vrsta.count}
+                    </div>
+                </a>
+
+            )
+        })
+
         const renderCard = vina.map((vino) => {
             return (
 
@@ -45,22 +62,25 @@ class Vina extends Component {
 
             )
         })
+
         return (
 
-
-
-            <div className="row" id="sliphover">
-
-
+            <div className="row">
+                <h3 className="brown-text">{vrste.title}</h3>
+                <hr />
+                {renderVrste}
+                <hr />
                 {renderCard}
             </div>
 
         )
+
     }
+
 }
 
-const mapStateToProps = ({ vina }) => {
-    return { vina };
+const mapStateToProps = ({ vrste }) => {
+    return { vrste };
 }
 
-export default connect(mapStateToProps, actions)(Vina);
+export default connect(mapStateToProps, actions)(Vrste)

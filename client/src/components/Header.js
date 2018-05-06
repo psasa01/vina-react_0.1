@@ -60,12 +60,12 @@ class Header extends Component {
                                 arrow="true"
                                 distance="2"
                             >
-                                <a href="/dodaj-vino">
+                                <Link to="/dodaj-vino">
                                     <i
                                         className="fa fa-plus-square fa-2x tooltip-icon"
                                         style={{ fontSize: 1.4 + 'em' }}>
                                     </i>
-                                </a>
+                                </Link>
                             </Tooltip>
                         </li>
                         <li>
@@ -95,15 +95,15 @@ class Header extends Component {
                             >
 
 
-                                <NavItem><a className="no-hover" href="/vrste">Vrstama</a></NavItem>
+                                <NavItem><Link className="no-hover" to="/vrste">Vrstama</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><a className="no-hover" href="/zemlje">Zemljama</a></NavItem>
+                                <NavItem><Link className="no-hover" to="/zemlje">Zemljama</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><a className="no-hover" href="/korisnici">Korisnicima</a></NavItem>
+                                <NavItem><Link className="no-hover" to="/korisnici">Korisnicima</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><a className="no-hover" href="/godine">Godinama</a></NavItem>
+                                <NavItem><Link className="no-hover" to="/godine">Godinama</Link></NavItem>
                                 <NavItem className="brown lighten-2" divider />
-                                <NavItem style={{ borderTop: "solid #a1887f 1px" }}><a className="no-hover" href="/zadnjeDodani">Najnovije dodana vina</a></NavItem>
+                                <NavItem style={{ borderTop: "solid #a1887f 1px" }}><Link className="no-hover" to="/vina/zadnjeDodanaVina">Najnovije dodana vina</Link></NavItem>
 
                             </Dropdown>
                         </li>
@@ -222,15 +222,15 @@ class Header extends Component {
                             >
 
 
-                                <NavItem><a className="no-hover" href="/vrste">Vrstama</a></NavItem>
+                                <NavItem><Link className="no-hover" to="/vrste">Vrstama</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><a className="no-hover" href="/zemlje">Zemljama</a></NavItem>
+                                <NavItem><Link className="no-hover" to="/zemlje">Zemljama</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><a className="no-hover" href="/korisnici">Korisnicima</a></NavItem>
+                                <NavItem><Link className="no-hover" to="/korisnici">Korisnicima</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><a className="no-hover" href="/godine">Godinama</a></NavItem>
+                                <NavItem><Link className="no-hover" to="/godine">Godinama</Link></NavItem>
                                 <NavItem className="brown lighten-2" divider />
-                                <NavItem style={{ borderTop: "solid #a1887f 1px" }}><a className="no-hover" href="/zadnjeDodani">Najnovije dodana vina</a></NavItem>
+                                <NavItem style={{ borderTop: "solid #a1887f 1px" }}><Link className="no-hover" to="/vina/zadnjeDodanaVina">Najnovije dodana vina</Link></NavItem>
 
                             </Dropdown>
 
@@ -356,7 +356,7 @@ class Header extends Component {
                 <SideNavItem>
                     <Link
                         className="no-hover brown-text"
-                        to="/"
+                        to="/zemlje"
                     >
                         <b>Pretraga po zemljama</b>
                     </Link>
@@ -364,7 +364,7 @@ class Header extends Component {
                 <SideNavItem>
                     <Link
                         className="no-hover brown-text"
-                        to="/"
+                        to="/vrste"
                     >
                         <b>Pretraga po vrstama</b>
                     </Link>
@@ -372,7 +372,7 @@ class Header extends Component {
                 <SideNavItem>
                     <Link
                         className="no-hover brown-text"
-                        to="/"
+                        to="/korisnici"
                     >
                         <b>Pretraga po korisnicima</b>
                     </Link>
@@ -380,7 +380,7 @@ class Header extends Component {
                 <SideNavItem>
                     <Link
                         className="no-hover brown-text"
-                        to="/"
+                        to="/godine"
                     >
                         <b>Pretraga po godinama</b>
                     </Link>
@@ -388,7 +388,7 @@ class Header extends Component {
                 <SideNavItem>
                     <Link
                         className="no-hover brown-text"
-                        to="/"
+                        to="/vina/zadnjeDodanaVina"
                     >
                         <b>Najnovije dodana vina</b>
                     </Link>
@@ -445,7 +445,7 @@ class Header extends Component {
                 <nav>
 
                     <div className="nav-wrapper brown">
-                        <Link to="/" className="left brand-logo">
+                        <Link to="/mojaKolekcijaVina" className="left brand-logo">
                             <img
                                 className="moja-kolekcija-vina"
                                 src="/images/logo.svg"

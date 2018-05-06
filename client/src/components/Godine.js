@@ -4,18 +4,37 @@ import * as actions from '../actions';
 import { Link } from 'react-router-dom';
 // import { Modal } from 'react-materialize';
 
-class Vina extends Component {
+class Godine extends Component {
 
     componentDidMount() {
-        this.props.fetchVina()
+        const { godina } = this.props.match.params
+        this.props.vinaPoGodinama(godina);
+
+        console.log('gdfgsfgafg', this.props.match)
 
     }
 
+
     render() {
+        const godine = this.props.godine || {};
+        const god = godine.god || [];
+        const vina = godine.vina || [];
+        console.log('gffdgfgfgf', godine)
+
+        const renderGodine = god.map((godina) => {
+            return (
 
 
 
-        const vina = this.props.vina || [];
+                <a href={`/godine/${godina._id}`} key={godina._id}>
+                    <div style={{ marginRight: .3 + 'em', marginBottom: .1 + 'em' }} className="btn waves-effect waves-light btn-zemlja brown">
+                        {godina._id} - {godina.count}
+                    </div>
+                </a>
+
+            )
+        })
+
         const renderCard = vina.map((vino) => {
             return (
 
@@ -45,22 +64,25 @@ class Vina extends Component {
 
             )
         })
+
         return (
 
-
-
-            <div className="row" id="sliphover">
-
-
+            <div className="row">
+                <h3 className="brown-text">{godine.title}</h3>
+                <hr />
+                {renderGodine}
+                <hr />
                 {renderCard}
             </div>
 
         )
+
     }
+
 }
 
-const mapStateToProps = ({ vina }) => {
-    return { vina };
+const mapStateToProps = ({ godine }) => {
+    return { godine };
 }
 
-export default connect(mapStateToProps, actions)(Vina);
+export default connect(mapStateToProps, actions)(Godine)

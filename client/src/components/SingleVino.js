@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
+
+import HomeButton from './HomeButton';
+
 // import { Modal } from 'react-materialize';
 
 class SingleVino extends Component {
@@ -21,7 +24,6 @@ class SingleVino extends Component {
     componentDidMount() {
 
         const { slug } = this.props.match.params
-
         this.props.fetchSingleVino(slug);
 
 
@@ -54,12 +56,12 @@ class SingleVino extends Component {
 
                 {
                     this.state.showFullScreenImage === true ?
-                        <div className="slika-fullscreen">
+                        <div className="slika-fullscreen" onClick={this.hideFullScreenImage}>
                             <img src={`/images/vina-big/${vino.slika || 'slika.jpg'}`} alt={vino.naziv} />
                             <div className="btn-floating red modal-close btn-large waves-effect waves-light" id="slika-close">
                                 <i
                                     className="material-icons"
-                                    onClick={this.hideFullScreenImage}
+
                                 >clear</i>
                             </div>
 
@@ -97,13 +99,15 @@ class SingleVino extends Component {
                         <br />
                         <h5>Zemlja porijekla: {vino.zemlja}</h5>
                         <h5>Proizvođač: {vino.proizvodjac}</h5>
-                        <h6>Vrsta: {vino.vrsta}</h6>
+                        <h5>Vrsta: {vino.vrsta}</h5>
                         <br />
                         <h5>Godina berbe: {vino.godina}</h5>
                         <h5>Procenat alkohola: {vino.alkohol}%</h5>
                         <h5>Veličina boce: {vino.velicina} litara</h5>
                     </div>
                 </div>
+
+                <HomeButton />
 
             </div>
         )

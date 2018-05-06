@@ -1,22 +1,25 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import * as actions from '../actions';
 import { Link } from 'react-router-dom';
-// import { Modal } from 'react-materialize';
 
-class Vina extends Component {
+
+class MojaKolekcijaVina extends Component {
+
 
     componentDidMount() {
-        this.props.fetchVina()
-
+        this.props.mojaKolekcijaVina();
+        this.props.fetchUser();
     }
 
+
     render() {
+        const auth = this.props.auth || {};
+        const ime = auth.ime;
+        const vina = this.props.moja || [];
 
-
-
-        const vina = this.props.vina || [];
         const renderCard = vina.map((vino) => {
+
             return (
 
                 <Link to={`/vino/${vino.slug}`} key={vino._id} className="modal-trigger">
@@ -46,21 +49,18 @@ class Vina extends Component {
             )
         })
         return (
-
-
-
             <div className="row" id="sliphover">
 
-
+                <h3 className="brown-text">Moja kolekcija vina - {ime}</h3>
+                <hr />
                 {renderCard}
             </div>
-
         )
     }
 }
 
-const mapStateToProps = ({ vina }) => {
-    return { vina };
+const mapStateToProps = ({ moja, auth }) => {
+    return { moja, auth };
 }
 
-export default connect(mapStateToProps, actions)(Vina);
+export default connect(mapStateToProps, actions)(MojaKolekcijaVina)

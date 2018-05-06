@@ -4,18 +4,34 @@ import * as actions from '../actions';
 import { Link } from 'react-router-dom';
 // import { Modal } from 'react-materialize';
 
-class Vina extends Component {
+class Korisnici extends Component {
 
     componentDidMount() {
-        this.props.fetchVina()
+
+        const { korisnik } = this.props.match.params
+        this.props.vinaPoKorisnicima(korisnik);
 
     }
-
     render() {
+        const korisnici = this.props.korisnici || {};
+        const kor = korisnici.kor || [];
+        const vina = korisnici.vina || [];
+        console.log(korisnici)
+
+        const renderKorisnici = kor.map((korisnik) => {
+            return (
 
 
 
-        const vina = this.props.vina || [];
+                <a href={`/korisnici/${korisnik._id}`}>
+                    <div style={{ marginRight: .3 + 'em', marginBottom: .1 + 'em' }} className="btn waves-effect waves-light btn-zemlja brown">
+                        {korisnik._id} - {korisnik.count}
+                    </div>
+                </a>
+
+            )
+        })
+
         const renderCard = vina.map((vino) => {
             return (
 
@@ -45,22 +61,24 @@ class Vina extends Component {
 
             )
         })
+
         return (
-
-
-
-            <div className="row" id="sliphover">
-
-
+            <div className="row">
+                <h3 className="brown-text">{korisnici.title}</h3>
+                <hr />
+                {renderKorisnici}
+                <hr />
                 {renderCard}
             </div>
 
         )
+
     }
+
 }
 
-const mapStateToProps = ({ vina }) => {
-    return { vina };
+const mapStateToProps = ({ korisnici }) => {
+    return { korisnici };
 }
 
-export default connect(mapStateToProps, actions)(Vina);
+export default connect(mapStateToProps, actions)(Korisnici)

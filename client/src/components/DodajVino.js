@@ -7,6 +7,8 @@ class DodajVino extends Component {
         return (
             <div className="row">
 
+                <h3 className="brown-text">Dodaj vino</h3>
+
                 <form action={`/api/vino/dodaj-vino`} className="col s12" id="vinoFormValidate" method="POST" enctype="multipart/form-data">
 
                     <div className="input-field col s12">

@@ -16,6 +16,7 @@ import Korisnici from './Korisnici';
 import Godine from './Godine';
 import MojaKolekcijaVina from './MojaKolekcijaVina';
 import DodajVino from './DodajVino';
+import UrediVino from './UrediVino';
 
 
 const SurveyNew = () => <h2>SurveyNew</h2>
@@ -46,6 +47,7 @@ class App extends Component {
                             <Route path='/godine/:godina?' component={Godine} />
                             <Route path='/mojaKolekcijaVina' component={MojaKolekcijaVina} />
                             <Route path='/dodaj-vino' component={DodajVino} />
+                            <Route path='/uredi-vino/:slug' component={UrediVino} />
 
 
 

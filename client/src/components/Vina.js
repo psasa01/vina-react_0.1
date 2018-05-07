@@ -37,11 +37,20 @@ class Vina extends Component {
                                 </div>
                             </div>
                             <div className="card-action brown lighten-4 action-style brown-text">
-                                <a className="modal-trigger brown-text card-zemlje" href={`/zemlje/${vino.zemlja}`}><p>{vino.zemlja.toUpperCase()}</p></a>
+                                <Link className="modal-trigger brown-text card-zemlje" to={`/zemlje/${vino.zemlja}`}><p>{vino.zemlja.toUpperCase()}</p></Link>
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <Link to={`/uredi-vino/${vino.slug}`}>
+
+                            <button>Uredi {vino.naziv}</button>
+
+                        </Link>
+                    </div>
                 </Link>
+
+
 
             )
         })
@@ -50,6 +59,7 @@ class Vina extends Component {
 
 
             <div className="row" id="sliphover">
+                <h3 className="brown-text">Zadnje dodana vina</h3>
 
 
                 {renderCard}

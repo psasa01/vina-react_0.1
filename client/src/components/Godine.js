@@ -22,17 +22,29 @@ class Godine extends Component {
         console.log('gffdgfgfgf', this.props)
 
         const renderGodine = god.map((godina) => {
-            return (
+
+            if (!godina._id) {
+                return (
+                    <a href="/godine/null" key="null">
+                        <div style={{ marginRight: .3 + 'em', marginBottom: .1 + 'em' }} className="btn waves-effect waves-light btn-zemlja brown">
+                            Bez godine - {godina.count}
+                        </div>
+                    </a>
+                )
+            } else {
+
+                return (
 
 
 
-                <a href={`/godine/${godina._id}`} key={godina._id}>
-                    <div style={{ marginRight: .3 + 'em', marginBottom: .1 + 'em' }} className="btn waves-effect waves-light btn-zemlja brown">
-                        {godina._id} - {godina.count}
-                    </div>
-                </a>
+                    <a href={`/godine/${godina._id}`} key={godina._id}>
+                        <div style={{ marginRight: .3 + 'em', marginBottom: .1 + 'em' }} className="btn waves-effect waves-light btn-zemlja brown">
+                            {godina._id} - {godina.count}
+                        </div>
+                    </a>
 
-            )
+                )
+            }
         })
 
         const renderCard = vina.map((vino) => {

@@ -101,7 +101,7 @@ class Header extends Component {
                                 <NavItem divider />
                                 <NavItem><Link className="no-hover" to="/korisnici">Korisnicima</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><Link className="no-hover" to="/godine/null">Godinama</Link></NavItem>
+                                <NavItem><Link className="no-hover" to="/godine/">Godinama</Link></NavItem>
                                 <NavItem className="brown lighten-2" divider />
                                 <NavItem style={{ borderTop: "solid #a1887f 1px" }}><Link className="no-hover" to="/vina/zadnjeDodanaVina">Najnovije dodana vina</Link></NavItem>
 
@@ -228,7 +228,7 @@ class Header extends Component {
                                 <NavItem divider />
                                 <NavItem><Link className="no-hover" to="/korisnici">Korisnicima</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><Link className="no-hover" to="/godine/null">Godinama</Link></NavItem>
+                                <NavItem><Link className="no-hover" to="/godine/">Godinama</Link></NavItem>
                                 <NavItem className="brown lighten-2" divider />
                                 <NavItem style={{ borderTop: "solid #a1887f 1px" }}><Link className="no-hover" to="/vina/zadnjeDodanaVina">Najnovije dodana vina</Link></NavItem>
 
@@ -443,7 +443,6 @@ class Header extends Component {
         return (
             <div>
                 <nav>
-
                     <div className="nav-wrapper brown">
                         <Link to="/mojaKolekcijaVina" className="left brand-logo">
                             <img
@@ -451,34 +450,23 @@ class Header extends Component {
                                 src="/images/logo.svg"
                                 alt="mojaKolekcijaVina" />
                         </Link>
-
-
-
                         <ul className="right hide-on-med-and-down right-margin">
                             <li>
                                 {this.renderContent()}
                             </li>
-
-
                         </ul>
-
                         <SideNav
                             trigger={
-
                                 <a
                                     className="sidenav-trigger"
                                 ><i className="material-icons">menu</i></a>
-
                             }
                             options={{ closeOnClick: true }}
                         >
-
                             {this.renderSidenav()}
-
                         </SideNav>
                     </div>
                 </nav>
-
             </div>
         )
     }

@@ -20,5 +20,10 @@ module.exports = (app) => {
         vinaController.resize,
         catchErrors(vinaController.snimiVino)
     );
+    app.post('/api/vino/uredi-vino/:slug',
+        vinaController.dodajSliku,
+        vinaController.resize,
+        catchErrors(vinaController.snimiUredjenoVino)
+    );
 
 }

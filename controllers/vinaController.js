@@ -170,3 +170,16 @@ exports.snimiVino = async (req, res) => {
     req.flash('success', 'Uspješno ste unijeli novo vino u bazu');
     res.redirect('/');
 }
+
+exports.snimiUredjenoVino = async (req, res) => {
+    const vino = await Vino.findOneAndUpdate({
+        slug: req.params.slug
+    }, req.body, {
+            new: true,
+            runValidators: true
+        }).exec();
+
+    // Vino.SyncToAlgolia();
+
+    res.redirect('/');
+}

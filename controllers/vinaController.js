@@ -75,7 +75,7 @@ exports.pretragaPoKorisnicima = async (req, res) => {
 };
 
 exports.pretragaPoGodinama = async (req, res) => {
-    const godina = parseInt(req.params.godina);
+    const godina = parseInt(req.params.godina) || null;
     const godinaPromise = Vino.popisGodina();
     const vinoPromise = Vino.find({
         godina

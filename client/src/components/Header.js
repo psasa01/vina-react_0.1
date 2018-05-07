@@ -101,7 +101,7 @@ class Header extends Component {
                                 <NavItem divider />
                                 <NavItem><Link className="no-hover" to="/korisnici">Korisnicima</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><Link className="no-hover" to="/godine">Godinama</Link></NavItem>
+                                <NavItem><Link className="no-hover" to="/godine/null">Godinama</Link></NavItem>
                                 <NavItem className="brown lighten-2" divider />
                                 <NavItem style={{ borderTop: "solid #a1887f 1px" }}><Link className="no-hover" to="/vina/zadnjeDodanaVina">Najnovije dodana vina</Link></NavItem>
 
@@ -228,7 +228,7 @@ class Header extends Component {
                                 <NavItem divider />
                                 <NavItem><Link className="no-hover" to="/korisnici">Korisnicima</Link></NavItem>
                                 <NavItem divider />
-                                <NavItem><Link className="no-hover" to="/godine">Godinama</Link></NavItem>
+                                <NavItem><Link className="no-hover" to="/godine/null">Godinama</Link></NavItem>
                                 <NavItem className="brown lighten-2" divider />
                                 <NavItem style={{ borderTop: "solid #a1887f 1px" }}><Link className="no-hover" to="/vina/zadnjeDodanaVina">Najnovije dodana vina</Link></NavItem>
 
@@ -380,7 +380,7 @@ class Header extends Component {
                 <SideNavItem>
                     <Link
                         className="no-hover brown-text"
-                        to="/godine"
+                        to="/godine/"
                     >
                         <b>Pretraga po godinama</b>
                     </Link>

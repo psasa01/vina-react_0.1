@@ -19,7 +19,7 @@ class Godine extends Component {
         const godine = this.props.godine || {};
         const god = godine.god || [];
         const vina = godine.vina || [];
-        console.log('gffdgfgfgf', godine)
+        console.log('gffdgfgfgf', this.props)
 
         const renderGodine = god.map((godina) => {
             return (

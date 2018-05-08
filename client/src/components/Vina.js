@@ -41,13 +41,6 @@ class Vina extends Component {
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <Link to={`/uredi-vino/${vino.slug}`}>
-
-                            <button>Uredi {vino.naziv}</button>
-
-                        </Link>
-                    </div>
                 </Link>
 
 

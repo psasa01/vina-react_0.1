@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 
-import HomeButton from './HomeButton';
+// import HomeButton from './HomeButton';
+import EditDeleteButton from './EditDeleteButton';
 
 // import { Modal } from 'react-materialize';
 
@@ -104,10 +105,11 @@ class SingleVino extends Component {
                         <h5>Godina berbe: {vino.godina}</h5>
                         <h5>Procenat alkohola: {vino.alkohol}%</h5>
                         <h5>Veličina boce: {vino.velicina} litara</h5>
+                        <EditDeleteButton listNameFromParent={vino}/>
                     </div>
                 </div>
 
-                <HomeButton />
+                
 
             </div>
         )

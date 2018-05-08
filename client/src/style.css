@@ -915,6 +915,10 @@ tr button {
   bottom: 0em;
 }
 
+.button-edit {
+  position: absolute !important;
+}
+
 .button-fab {
   position: absolute !important;
   bottom: .7em !important;

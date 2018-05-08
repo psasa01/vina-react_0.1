@@ -43,18 +43,40 @@ class EditDeleteButton extends Component {
                 {
                     this.state.showDeleteModal === true ?
 
-                        <div>ff</div> :
+                        <div style={{ position: 'absolute', left: 2 + '%', top: 1 + 'em', width: 96 + '%' }}>
+                            <div class="row">
+                                <div className="col s12">
+                                    <div className="card white darken-1">
+                                        <div className="card-content brown-text">
+                                            <span className="card-title">Da li zaista želite obrisati vino {this.props.listNameFromParent.naziv}?</span>
 
-                        <div>aa</div>
+                                        </div>
+                                        <div className="card-action">
+
+                                            <div onClick={this.hideDeleteModal.bind(this)}>
+                                                <div style={{ margin: .2 + 'em', bottom: .5 + 'em' }} className=" right btn green waves-effect waves-lighten">Zatvori</div>
+                                            </div>
+
+                                            <a href={`/api/vino/ukloni/${this.props.listNameFromParent.slug}`}>
+                                                <div style={{ margin: .2 + 'em', bottom: .5 + 'em' }} className="right btn red waves-effect waves-lighten">Obriši</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div> :
+
+                        <div></div>
 
 
                 }
 
 
-                <div className="fixed-action-btn button-fab button-edit" id="home-button">
+                <div style={{ position: 'absolute !important' }} className="fixed-action-btn button-fab button-edit" >
                     <div className="btn-floating btn-large brown">
                         <i className="large material-icons">
-                            chevron_left
+                            arrow_drop_up
                             </i>
                     </div>
                     <ul>
@@ -66,7 +88,7 @@ class EditDeleteButton extends Component {
                                 distance="8"
                             >
 
-                                <div onClick={this.showDeleteModal.bind(this)} className="btn-floating blue">
+                                <div onClick={this.showDeleteModal.bind(this)} className="btn-floating blue" style={{ borderRadius: 0 }}>
                                     <i className="material-icons">clear</i>
                                 </div>
 
@@ -80,7 +102,7 @@ class EditDeleteButton extends Component {
                                 arrow="true"
                                 distance="8"
                             >
-                                <Link to={`/uredi-vino/${this.props.listNameFromParent.slug}`} className="btn-floating red">
+                                <Link to={`/uredi-vino/${this.props.listNameFromParent.slug}`} className="btn-floating red" style={{ borderRadius: 0 }}>
                                     <i className="material-icons">mode_edit</i>
                                 </Link>
 
@@ -90,7 +112,7 @@ class EditDeleteButton extends Component {
 
 
                 </div>
-            </div>
+            </div >
 
         )
     }

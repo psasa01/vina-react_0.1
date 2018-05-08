@@ -26,4 +26,6 @@ module.exports = (app) => {
         catchErrors(vinaController.snimiUredjenoVino)
     );
 
+    app.get('/api/vino/ukloni/:slug', catchErrors(vinaController.ukloniVino));
+
 }

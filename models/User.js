@@ -31,12 +31,41 @@ const userSchema = new Schema({
             'Nažalost niste unijeli validnu email adresu!'
         ]
     },
+    zadnjiPutVidjen: {
+        type: Date
+    },
     slika: String,
     level: {
         type: Number,
         default: 30
     },
-
+    reg: {
+        type: String,
+        default: 'ne'
+    },
+    brojVina: {
+        type: Number,
+        default: 0
+    },
+    registrovan: {
+        type: Date,
+        default: Date.now()
+    },
+    secretToken: {
+        type: String
+    },
+    active: {
+        type: Boolean,
+        default: false
+    },
+    resetPasswordToken: {
+        type: String,
+        default: ''
+    },
+    resetPasswordExpire: {
+        type: Date,
+        default: undefined
+    }
 },
     // https://stackoverflow.com/questions/13133911/cant-get-mongoose-virtuals-to-be-part-of-the-result-object
     {

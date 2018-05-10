@@ -15,6 +15,7 @@ class EditDeleteButton extends Component {
         this.setState({
             showDeleteModal: false
         })
+        console.log('thisssssssssssss', this.props)
     }
 
 
@@ -33,6 +34,7 @@ class EditDeleteButton extends Component {
 
     render() {
 
+        console.log(this.props)
 
         return (
 
@@ -117,5 +119,7 @@ class EditDeleteButton extends Component {
         )
     }
 }
+
+
 
 export default EditDeleteButton;

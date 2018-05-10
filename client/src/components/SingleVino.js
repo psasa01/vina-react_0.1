@@ -84,7 +84,7 @@ class SingleVino extends Component {
                     <div className="col l4 s12 slika slika-trigger">
                         <img
                             onClick={this.showFullScreenImage}
-                            src={`/images/vina-thumbs/${vino.slika || 'slika.jpg'}`}
+                            src={`/images/vina-big/${vino.slika || 'slika.jpg'}`}
                             alt={vino.naziv}
                             className="z-depth-2"
                             style={{ width: 90 + '%' }}
@@ -105,11 +105,11 @@ class SingleVino extends Component {
                         <h5>Godina berbe: {vino.godina}</h5>
                         <h5>Procenat alkohola: {vino.alkohol}%</h5>
                         <h5>Veličina boce: {vino.velicina} litara</h5>
-                        <EditDeleteButton listNameFromParent={vino}/>
+                        <EditDeleteButton listNameFromParent={vino} />
                     </div>
                 </div>
 
-                
+
 
             </div>
         )

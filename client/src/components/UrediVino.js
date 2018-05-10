@@ -7,7 +7,7 @@ import axios from 'axios';
 class UrediVino extends Component {
 
     constructor() {
-        super();   
+        super();
         this.state = {
             inputNaziv: ''
         }
@@ -20,10 +20,10 @@ class UrediVino extends Component {
 
         const { slug } = this.props.match.params
 
-       
-            axios.get(`/api/vino/${slug}`)
-              .then(res => {
-                
+
+        axios.get(`/api/vino/${slug}`)
+            .then(res => {
+
                 this.setState({
                     inputNaziv: res.data.naziv,
                     naziv: res.data.naziv,
@@ -36,21 +36,21 @@ class UrediVino extends Component {
                     inputSlug: res.data.slug,
                     inputSlika: res.data.slika
                 })
-              });
+            });
 
-            console.log('stttattettt', this.state)
-          }
-
-
-        // this.props.fetchSingleVino(slug);
-    
+        console.log('stttattettt', this.state)
+    }
 
 
+    // this.props.fetchSingleVino(slug);
 
-    render() {       
 
-console.log(this)
-       
+
+
+    render() {
+
+        console.log(this)
+
         return (
             <div className="row">
 
@@ -59,32 +59,32 @@ console.log(this)
                 <form action={`/api/vino/uredi-vino/${this.state.inputSlug}`} className="col s12" id="vinoFormValidate" method="POST" enctype="multipart/form-data">
 
                     <div className="input-field col s12">
-                        <input type="text" id="naziv" className="validate" name="naziv" value={this.state.inputNaziv} onChange={(e) => {this.setState({inputNaziv: e.target.value})}} />
+                        <input type="text" id="naziv" className="validate" name="naziv" value={this.state.inputNaziv} onChange={(e) => { this.setState({ inputNaziv: e.target.value }) }} />
                         <label className="active" htmlFor="naziv">Naziv vina</label>
 
                     </div>
                     <div className="input-field col s12 l6">
-                        <input type="text" id="naziv" className="validate" name="proizvodjac" value={this.state.inputProizvodjac} />
+                        <input type="text" id="naziv" className="validate" name="proizvodjac" value={this.state.inputProizvodjac} onChange={(e) => { this.setState({ inputProizvodjac: e.target.value }) }} />
                         <label className="active" htmlFor="proizvodjac">Naziv proizvođača</label>
                     </div>
                     <div className="input-field col s12 l6">
-                        <input type="text" id="zemlje" className="validate" name="zemlja" value={this.state.inputZemlja} />
+                        <input type="text" id="zemlje" className="validate" name="zemlja" value={this.state.inputZemlja} onChange={(e) => { this.setState({ inputZemlja: e.target.value }) }} />
                         <label className="active" htmlFor="zemlja">Zemlja porijekla</label>
                     </div>
                     <div className="input-field col s12 l6">
-                        <input type="text" id="vrsta" className="validate" name="vrsta" value={this.state.inputVrsta} />
+                        <input type="text" id="vrsta" className="validate" name="vrsta" value={this.state.inputVrsta} onChange={(e) => { this.setState({ inputVrsta: e.target.value }) }} />
                         <label className="active" htmlFor="vrsta">Vrsta vina</label>
                     </div>
                     <div className="input-field col s12 l6">
-                        <input type="text" id="godina" className="validate" name="godina" value={this.state.inputGodina} />
+                        <input type="text" id="godina" className="validate" name="godina" value={this.state.inputGodina} onChange={(e) => { this.setState({ inputGodina: e.target.value }) }} />
                         <label className="active" htmlFor="godina">Godina berbe</label>
                     </div>
                     <div className="input-field col s12 l6">
-                        <input type="text" id="alkohol" className="validate" name="alkohol" value={this.state.inputAlkohol} />
+                        <input type="text" id="alkohol" className="validate" name="alkohol" value={this.state.inputAlkohol} onChange={(e) => { this.setState({ inputAlkohol: e.target.value }) }} />
                         <label className="active" htmlFor="alkohol">Procenat alkohola</label>
                     </div>
                     <div className="input-field col s12 l6">
-                        <input type="text" id="velicina" className="validate" name="velicina" value={this.state.inputVelicina} />
+                        <input type="text" id="velicina" className="validate" name="velicina" value={this.state.inputVelicina} onChange={(e) => { this.setState({ inputVelicina: e.target.value }) }} />
                         <label className="active" htmlFor="velicina">Veličina boce</label>
                     </div>
                     <div className="file-field input-field col l6 s12">

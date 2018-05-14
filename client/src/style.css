@@ -443,7 +443,7 @@ table {
   margin-right: auto;
   margin-left: auto;
   padding: 1em 2em;
-  position: absolute;
+  position: fixed !important;
   bottom: 4em;
   left: 1em;
   width: auto;

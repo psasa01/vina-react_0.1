@@ -6,7 +6,8 @@ import vinaPoZemljamaReducer from './vinaPoZemljamaReducer';
 import vinaPoVrstamaReducer from './vinaPoVrstamaReducer';
 import vinaPoKorisnicimaReducer from './vinaPoKorisnicimaReducer';
 import vinaPoGodinamaReducer from './vinaPoGodinamaReducer';
-import mojaKolekcijaVina from './mojaKolekcijaVinaReducer';
+import mojaKolekcijaVinaReducer from './mojaKolekcijaVinaReducer';
+import obrisiVinoReducer from './obrisiVinoReducer';
 
 export default combineReducers({
     // whatever we put inside represents a key that exists inside state 
@@ -17,5 +18,6 @@ export default combineReducers({
     vrste: vinaPoVrstamaReducer,
     korisnici: vinaPoKorisnicimaReducer,
     godine: vinaPoGodinamaReducer,
-    moja: mojaKolekcijaVina
+    moja: mojaKolekcijaVinaReducer,
+    obrisano: obrisiVinoReducer
 });

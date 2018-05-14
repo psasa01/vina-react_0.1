@@ -6,3 +6,4 @@ export const VINA_PO_VRSTAMA = 'vinaPoVrstama';
 export const VINA_PO_KORISNICIMA = 'vinaPoKorisnicima';
 export const VINA_PO_GODINAMA = 'vinaPoGodinama';
 export const MOJA_KOLEKCIJA_VINA = 'mojaKolekcijaVina';
+export const OBRISI_VINO = 'obrisiVino';

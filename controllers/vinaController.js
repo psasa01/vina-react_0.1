@@ -211,13 +211,23 @@ exports.ukloniVino = async (req, res) => {
 
         user.save();
         console.log('uuuuuuuuuusssssssseeeeeeeerrrrrrrrr', user);
-        req.flash('success', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong>`);
-        res.redirect('/');
-    } else {
-        req.flash('error', 'Nemate pravo da izbrišete ovo vino!');
-        res.redirect('/login');
-    }
-
+        res.json({
+            message: 
+            {
+                type: 'success', 
+                text: `Uspješno ste uklonili vino <strong>${vino.naziv}</strong>`
+            }
+        });
+       
+    } else (
+        
+        res.json({
+        message: 
+        {
+            type: 'success', 
+            text: `Nažalost nemate pravo da uklonite <strong>${vino.naziv}</strong>`
+        }
+    }));
     // fs.unlink(`./public/images/${vino.slika}`, (err) => {
     //   if (err) {
     //     req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);

@@ -7,7 +7,8 @@ import {
     VINA_PO_VRSTAMA,
     VINA_PO_KORISNICIMA,
     VINA_PO_GODINAMA,
-    MOJA_KOLEKCIJA_VINA
+    MOJA_KOLEKCIJA_VINA,
+    OBRISI_VINO
 } from './types';
 
 
@@ -57,4 +58,10 @@ export const mojaKolekcijaVina = () => async dispatch => {
 
     const res = await axios.get('/api/vina/mojaKolekcijaVina');
     dispatch({ type: MOJA_KOLEKCIJA_VINA, payload: res.data })
+}
+
+export const obrisiVino = (slug) => async dispatch => {
+
+    const res = await axios.get(`/api/vino/ukloni/${slug}`);
+    dispatch({ type: OBRISI_VINO, payload: res.data })
 }

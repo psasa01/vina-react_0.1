@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Tooltip } from 'react-tippy';
+import { connect } from 'react-redux';
+
+
+import * as actions from '../actions';
 
 class EditDeleteButton extends Component {
 
@@ -34,7 +38,7 @@ class EditDeleteButton extends Component {
 
     render() {
 
-        console.log(this.props)
+        console.log('historyyyy', this.props)
 
         return (
 
@@ -59,7 +63,11 @@ class EditDeleteButton extends Component {
                                                 <div style={{ margin: .2 + 'em', bottom: .5 + 'em' }} className=" right btn green waves-effect waves-lighten">Zatvori</div>
                                             </div>
 
-                                            <a href={`/api/vino/ukloni/${this.props.listNameFromParent.slug}`}>
+                                            <a onClick={() => {
+                                                this.props.obrisiVino(this.props.listNameFromParent.slug);
+                                                this.props.history.goBack(2);
+                                            }
+                                            }>
                                                 <div style={{ margin: .2 + 'em', bottom: .5 + 'em' }} className="right btn red waves-effect waves-lighten">Obriši</div>
                                             </a>
                                         </div>
@@ -120,6 +128,10 @@ class EditDeleteButton extends Component {
     }
 }
 
+const mapStateToProps = ({ obrisano }) => {
+    return {obrisano};
+}
 
 
-export default EditDeleteButton;
+export default withRouter(connect(mapStateToProps, actions)(EditDeleteButton));
+

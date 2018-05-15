@@ -63,5 +63,5 @@ export const mojaKolekcijaVina = () => async dispatch => {
 export const obrisiVino = (slug) => async dispatch => {
 
     const res = await axios.get(`/api/vino/ukloni/${slug}`);
-    dispatch({ type: OBRISI_VINO, payload: res.data })
+    dispatch({ type: OBRISI_VINO, payload: res.data });
 }

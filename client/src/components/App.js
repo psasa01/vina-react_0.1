@@ -17,6 +17,7 @@ import Godine from './Godine';
 import MojaKolekcijaVina from './MojaKolekcijaVina';
 import DodajVino from './DodajVino';
 import UrediVino from './UrediVino';
+import Flash from './Flash';
 
 
 const SurveyNew = () => <h2>SurveyNew</h2>
@@ -28,11 +29,21 @@ class App extends Component {
     }
 
     render() {
+
+        const obrisano = this.props.obrisano || {};
+
         return (
             <div>
                 <BrowserRouter>
                     <div>
                         <Header />
+
+                        {
+                            obrisano.message ? 
+            
+                            <Flash /> : <div></div>
+                        }
+
                         <Route exact path='/' component={Landing} />
                         <div className="container">
 
@@ -64,4 +75,10 @@ class App extends Component {
     }
 }
 
-export default connect(null, actions)(App);
+const mapStateToProps = ({ obrisano }) => {
+    return { obrisano }
+
+}
+
+
+export default connect(mapStateToProps, actions)(App);

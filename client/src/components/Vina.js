@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Link } from 'react-router-dom';
-import Flash from './Flash';
+// import Flash from './Flash';
 // import { Modal } from 'react-materialize';
 
 class Vina extends Component {
@@ -17,7 +17,7 @@ class Vina extends Component {
 
 
         const vina = this.props.vina || [];
-        const obrisano = this.props.obrisano || {};
+        // const obrisano = this.props.obrisano || {};
         // const { type, text } = obrisano.message;
         const renderCard = vina.map((vino) => {
             return (
@@ -57,11 +57,7 @@ class Vina extends Component {
 
             <div className="row" id="sliphover" >
 
-            {
-                obrisano.message ? 
 
-                <Flash /> : <div></div>
-            }
 
                 <h3 className="brown-text">Zadnje dodana vina</h3>
 

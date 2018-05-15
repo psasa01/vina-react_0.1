@@ -44,7 +44,7 @@ class Korisnici extends Component {
                                 className="card-image sliphover-target"
                                 data-caption={`<a className="modal-trigger sliphover-options" href='#${vino.slug}'><div className="sliphover-wrapper"><p>${vino.naziv}</p></div></a>`}
                             >
-                                <img src={`/images/vina-thumbs/${vino.slika}`} alt={vino.naziv} />
+                                <img src={`/images/vina-thumbs/${vino.slika || 'slika.jpg'}`} alt={vino.naziv} />
                                 <div className="korisnik">
                                     <p className="card-ime">{vino.ime}</p>
                                 </div>

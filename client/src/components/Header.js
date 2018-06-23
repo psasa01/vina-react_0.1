@@ -8,7 +8,7 @@ class Header extends Component {
 
 
     renderAdmin() {
-        if (this.props.auth.level > 11) {
+        if (this.props.auth.level < 11) {
             return (
                 <li>
                     <Tooltip

@@ -193,7 +193,7 @@ exports.ukloniVino = async (req, res) => {
     // console.log('lllooogggeedd', loggedUser);
     // console.log('viiiivnnooo delete', vinoToDelete);
 
-    if (loggedUser && loggedUser._id === vinoToDelete.korisnik || loggedUser.level === 1) {
+    // if (loggedUser && loggedUser.id.toString() === vinoToDelete.korisnik.toString() || loggedUser.level === 1) {
         const vino = await Vino.findOneAndRemove({
             slug: req.params.slug
         });
@@ -210,24 +210,25 @@ exports.ukloniVino = async (req, res) => {
             }).exec();
 
         user.save();
-        console.log('uuuuuuuuuusssssssseeeeeeeerrrrrrrrr', user);
+        // console.log('uuuuuuuuuusssssssseeeeeeeerrrrrrrrr', user);
         res.json({
             message: 
             {
                 type: 'success', 
-                text: `Uspješno ste uklonili vino <strong>${vino.naziv}</strong>`
+                text: `Uspješno ste uklonili vino ${vino.naziv}`
             }
         });
        
-    } else (
+    // } else (
         
-        res.json({
-        message: 
-        {
-            type: 'success', 
-            text: `Nažalost nemate pravo da uklonite <strong>${vino.naziv}</strong>`
-        }
-    }));
+    //     res.json({
+    //     message: 
+    //     {
+    //         type: 'success', 
+    //         text: `Nažalost nemate pravo da uklonite ${vino.naziv}`
+    //     }
+    // }));
+    
     // fs.unlink(`./public/images/${vino.slika}`, (err) => {
     //   if (err) {
     //     req.flash('error', `Uspješno ste uklonili vino <strong>${vino.naziv}</strong> iz kataloga!`);

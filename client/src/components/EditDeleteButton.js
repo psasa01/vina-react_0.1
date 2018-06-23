@@ -35,10 +35,54 @@ class EditDeleteButton extends Component {
         })
     }
 
+    renderFab() {
+        if((this.props.auth && this.props.auth.level < 11) || (this.props.auth && this.props.vino && this.props.auth.id.toString() === this.props.vino.korisnik.toString()) ) {
+            return <div style={{ position: 'absolute !important' }} className="fixed-action-btn button-fab button-edit" >
+            <div className="btn-floating btn-large brown">
+                <i className="large material-icons">
+                    arrow_drop_up
+                    </i>
+            </div>
+            <ul>
+                <li>
+                    <Tooltip
+                        title="Obriši vino"
+                        position="left"
+                        arrow="true"
+                        distance="8"
+                    >
 
+                        <div onClick={this.showDeleteModal.bind(this)} className="btn-floating blue" style={{ borderRadius: 0 }}>
+                            <i className="material-icons">clear</i>
+                        </div>
+
+
+                    </Tooltip>
+                </li>
+                <li>
+                    <Tooltip
+                        title="Uredi vino"
+                        position="left"
+                        arrow="true"
+                        distance="8"
+                    >
+                        <Link to={`/uredi-vino/${this.props.listNameFromParent.slug}`} className="btn-floating red" style={{ borderRadius: 0 }}>
+                            <i className="material-icons">mode_edit</i>
+                        </Link>
+
+                    </Tooltip>
+                </li>
+            </ul>
+
+
+        </div>
+        } else {
+            return <div></div>
+        }
+    }
     render() {
 
-        console.log('historyyyy', this.props)
+        console.log(this)
 
         return (
 
@@ -82,54 +126,19 @@ class EditDeleteButton extends Component {
 
                 }
 
-
-                <div style={{ position: 'absolute !important' }} className="fixed-action-btn button-fab button-edit" >
-                    <div className="btn-floating btn-large brown">
-                        <i className="large material-icons">
-                            arrow_drop_up
-                            </i>
-                    </div>
-                    <ul>
-                        <li>
-                            <Tooltip
-                                title="Obriši vino"
-                                position="left"
-                                arrow="true"
-                                distance="8"
-                            >
-
-                                <div onClick={this.showDeleteModal.bind(this)} className="btn-floating blue" style={{ borderRadius: 0 }}>
-                                    <i className="material-icons">clear</i>
-                                </div>
+                
 
 
-                            </Tooltip>
-                        </li>
-                        <li>
-                            <Tooltip
-                                title="Uredi vino"
-                                position="left"
-                                arrow="true"
-                                distance="8"
-                            >
-                                <Link to={`/uredi-vino/${this.props.listNameFromParent.slug}`} className="btn-floating red" style={{ borderRadius: 0 }}>
-                                    <i className="material-icons">mode_edit</i>
-                                </Link>
-
-                            </Tooltip>
-                        </li>
-                    </ul>
-
-
-                </div>
+                    {this.renderFab()}
+             
             </div >
 
         )
     }
 }
 
-const mapStateToProps = ({ obrisano }) => {
-    return {obrisano};
+const mapStateToProps = ({ obrisano, auth, vino }) => {
+    return {obrisano, auth, vino};
 }
 
 
